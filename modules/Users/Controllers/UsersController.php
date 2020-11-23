@@ -2,12 +2,13 @@
 
 namespace Modules\Users\Controllers;
 
+use Auth;
 use Hash;
 use Validator;
 use Illuminate\Http\Request;
 
 use App\Http\Controllers\Controller;
-use App\Modules\Users\Repositories\UsersRepository;
+use Modules\Users\Repositories\UsersRepository;
 
 class UsersController extends Controller
 {
@@ -19,5 +20,12 @@ class UsersController extends Controller
      */
     public function __construct(UsersRepository $users){
         $this->users = $users;
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+
+        return redirect('/')->withSuccessMessage('Logout');
     }
 }

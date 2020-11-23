@@ -4,6 +4,7 @@ use Modules\Users\Controllers\PdfController;
 use Modules\Users\Controllers\SocialController;
 use Modules\Users\Controllers\ImagesController;
 use Modules\Users\Controllers\DashboardController;
+use Modules\Users\Controllers\UsersController;
 /*
 |--------------------------------------------------------------------------
 | Application Routes for Admins Module
@@ -19,9 +20,13 @@ use Modules\Users\Controllers\DashboardController;
 Route::group(['middleware' => 'web'], function () {
     Route::get('login/{provider}', [SocialController::class, 'redirect']);
     Route::get('login/{provider}/callback',[SocialController::class, 'callback']);
+});
+Route::group(['middleware' => ['web','auth']], function () {
 	Route::get('/dashboard',[DashboardController::class, 'index'])->name('dashboard');
 	Route::get('/userimages',[ImagesController::class, 'index'])->name('images');
 	Route::post('/userimages',[ImagesController::class, 'store'])->name('images.store');
 	Route::get('/delete-image/{id}',[ImagesController::class, 'destroy'])->name('images.destroy');
 	Route::get('/get-pdf',[PdfController::class, 'index'])->name('pdf.index');
+
+	Route::get('/logout', [UsersController::class, 'logout'])->name('logout');
 });

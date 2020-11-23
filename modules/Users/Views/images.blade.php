@@ -32,7 +32,7 @@
 
 			</div>
 			<div class="card-footer">
-				{{ $images->links() }}
+				{!! $images->links() !!}
 			</div>
 		</div>
 	</div>

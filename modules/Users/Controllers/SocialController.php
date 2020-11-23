@@ -27,7 +27,7 @@ class SocialController extends Controller
 
     		if($userExist){
                 Auth::login($userExist);
-                return redirect('/home');
+                return redirect()->route('dashboard');
             }else{
                 $userData = array(
                                 'name'          => $socialUser->getName(),
@@ -41,7 +41,7 @@ class SocialController extends Controller
                 
                 if($user){
                     Auth::login($user);
-                    return redirect('/home');
+                    return redirect()->route('dashboard');
                 }
             }
     }
