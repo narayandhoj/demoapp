@@ -28,13 +28,11 @@
                 <x-jet-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
             </div>
 
-            <div class="form-group row">
-                <div class="col-md-6 offset-md-4">
-                    <a href="{{ url('/login/facebook') }}" class="btn btn-facebook"> Facebook</a>
-                </div>
-                <div class="col-md-6">
-                    <a href="{{ url('/login/google') }}" class="btn btn-google-plus"> Google</a>
-                </div>
+            <div class="mt-4">
+                <a href="{{ url('/login/facebook') }}" class="btn btn-facebook"> <img src="{{ url('images/Facebook-logo.png') }}" alt="" width="50">Sign Up With Facebook</a>
+            </div>
+            <div class="mt-4">
+                <a href="{{ url('/login/google') }}" class="btn btn-google-plus"> <img src="{{ url('images/google-logo.jpg') }}" alt="" width="50"> Sign Up With Google</a>
             </div>
 
             <div class="flex items-center justify-end mt-4">
